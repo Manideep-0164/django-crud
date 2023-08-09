@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User data</title>
+    <style>
+        .user-info {
+            list-style: none;
+            border: 1px solid;
+            display: inline-block;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="user-cont">
+        {% for user in users %}
+        <ul class="user-info">
+            <li>Name: {{user.name}}</li>
+            <li>Age: {{user.age}}</li>
+            <li>City: {{user.city}}</li>
+            <a href="http://127.0.0.1:8000/crud/edituser/{{user.id}}/"><button>Edit</button></a>
+            <a href="http://127.0.0.1:8000/crud/deleteuser/{{user.id}}/"><button>Delete</button></a>
+        </ul>
+        {% endfor %}
+    </div>
+</body>
+</html>

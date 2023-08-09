@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User form</title>
+</head>
+<body>
+    <form>
+        {% csrf_token %}
+        <input type="text" name="username" id="username">
+        <input type="number" name="age" id="age">
+        <input type="text" name="city" id="city">
+        <input type="submit" value="Submit">
+    </form>
+</body>
+<script>
+    const baseURL = 'http://127.0.0.1:8000'
+    let form = document.querySelector('form');
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const userData = new FormData(e.target)
+        const csrfToken = userData.get('csrfmiddlewaretoken')
+
+
+        fetch(`${baseURL}/crud/userform/`, {
+            method: 'POST',
+            headers: { 'X-CSRFToken': csrfToken },
+            body: userData
+        })
+            .then(res => res.text())
+            .then(data => {
+                window.location.href = `${baseURL}/crud/users/`
+            })
+    })
+</script>
+</html>
