@@ -3,27 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User data</title>
-    <style>
-        .user-info {
-            list-style: none;
-            border: 1px solid;
-            display: inline-block;
-            padding: 10px;
-        }
-    </style>
+    <title>User Data</title>
+    <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
-    <div class="user-cont">
-        {% for user in users %}
-        <ul class="user-info">
-            <li>Name: {{user.name}}</li>
-            <li>Age: {{user.age}}</li>
-            <li>City: {{user.city}}</li>
-            <a href="https://django-crud-rosy.vercel.app/crud/edituser/{{user.id}}/"><button>Edit</button></a>
-            <a href="https://django-crud-rosy.vercel.app/crud/deleteuser/{{user.id}}/"><button>Delete</button></a>
-        </ul>
-        {% endfor %}
+    <nav class="navbar">
+        <a href="https://django-crud-rosy.vercel.app/crud/">Home</a>
+        <a href="https://django-crud-rosy.vercel.app/crud/userform/">Add User</a>
+        <a href="https://django-crud-rosy.vercel.app/crud/users/">Users</a>
+    </nav>
+
+    <div class="container">
+        {% if users %}
+        <div class="card-container">
+            {% for user in users %}
+            <div class="user-card">
+                <h3>{{ user.name }}</h3>
+                <p>Age: {{ user.age }}</p>
+                <p>City: {{ user.city }}</p>
+                <div class="button-container">
+                    <a href="https://django-crud-rosy.vercel.app/crud/edituser/{{user.id}}/"
+                        class="edit-button">Edit</a>
+                    <a href="https://django-crud-rosy.vercel.app/crud/deleteuser/{{user.id}}/"
+                        class="delete-button">Delete</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="no-data">No data present.</div>
+        {% endif %}
     </div>
 </body>
 </html>

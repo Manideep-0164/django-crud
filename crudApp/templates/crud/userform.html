@@ -3,19 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User form</title>
+    <title>User Form</title>
+    <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
-    <form>
-        {% csrf_token %}
-        <input type="text" name="username" id="username">
-        <input type="number" name="age" id="age">
-        <input type="text" name="city" id="city">
-        <input type="submit" value="Submit">
-    </form>
+    <nav class="navbar">
+        <a href="http://127.0.0.1:8000/crud/">Home</a>
+        <a href="http://127.0.0.1:8000/crud/userform/">Add User</a>
+        <a href="http://127.0.0.1:8000/crud/users/">Users</a>
+    </nav>
+
+    <div class="container">
+        <h1 class="form-heading">Add user</h1>
+        <form method="post">
+            {% csrf_token %}
+            <input type="text" name="username" id="username" placeholder="Username">
+            <input type="number" name="age" id="age" placeholder="Age">
+            <input type="text" name="city" id="city" placeholder="City">
+            <input type="submit" value="Submit" class="submit-button">
+        </form>
+    </div>
 </body>
+</html>
+
 <script>
-    // const baseURL = 'http://127.0.0.1:8000'  "local url"
+    // const baseURL = 'http://127.0.0.1:8000'  //"local url"
     const baseURL = 'https://django-crud-rosy.vercel.app'
     let form = document.querySelector('form');
 
@@ -36,4 +48,3 @@
             })
     })
 </script>
-</html>
