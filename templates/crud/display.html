@@ -1,0 +1,37 @@
+<!-- {% load static %} -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Data</title>
+    <link rel="stylesheet" href="../../static/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="http://127.0.0.1:8000/crud/">Home</a>
+        <a href="http://127.0.0.1:8000/crud/userform/">Add User</a>
+        <a href="http://127.0.0.1:8000/crud/users/">Users</a>
+    </nav>
+
+    <div class="container">
+        {% if users %}
+        <div class="card-container">
+            {% for user in users %}
+            <div class="user-card">
+                <h3>{{ user.name }}</h3>
+                <p>Age: {{ user.age }}</p>
+                <p>City: {{ user.city }}</p>
+                <div class="button-container">
+                    <a href="http://127.0.0.1:8000/crud/edituser/{{user.id}}/" class="edit-button">Edit</a>
+                    <a href="http://127.0.0.1:8000/crud/deleteuser/{{user.id}}/" class="delete-button">Delete</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="no-data">No data present.</div>
+        {% endif %}
+    </div>
+</body>
+</html>
