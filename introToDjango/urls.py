@@ -19,9 +19,9 @@ from django.urls import path,include
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
+    path('', include('crudApp.urls')),
     path('admin/', admin.site.urls),
-    path('basic/',include('basicDjango.urls')),
-    path('crud/', include('crudApp.urls'))
+    path('basic/',include('basicDjango.urls'))
 ]
 
 urlpatterns += staticfiles_urlpatterns()

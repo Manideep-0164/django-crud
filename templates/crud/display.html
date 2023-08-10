@@ -149,9 +149,9 @@
 </head>
 <body>
     <nav class="navbar">
-        <a href="https://django-crud-rosy.vercel.app/crud/">Home</a>
-        <a href="https://django-crud-rosy.vercel.app/crud/userform/">Add User</a>
-        <a href="https://django-crud-rosy.vercel.app/crud/users/">Users</a>
+        <a href="https://django-crud-rosy.vercel.app/">Home</a>
+        <a href="https://django-crud-rosy.vercel.app/userform/">Add User</a>
+        <a href="https://django-crud-rosy.vercel.app/users/">Users</a>
     </nav>
 
     <div class="container">
@@ -163,9 +163,8 @@
                 <p>Age: {{ user.age }}</p>
                 <p>City: {{ user.city }}</p>
                 <div class="button-container">
-                    <a href="https://django-crud-rosy.vercel.app/crud/edituser/{{user.id}}/"
-                        class="edit-button">Edit</a>
-                    <a href="https://django-crud-rosy.vercel.app/crud/deleteuser/{{user.id}}/"
+                    <a href="https://django-crud-rosy.vercel.app/edituser/{{user.id}}/" class="edit-button">Edit</a>
+                    <a href="https://django-crud-rosy.vercel.app/deleteuser/{{user.id}}/"
                         class="delete-button">Delete</a>
                 </div>
             </div>
